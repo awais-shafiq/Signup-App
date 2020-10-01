@@ -7,28 +7,36 @@ class Home extends Component {
 
         super(props);
 
-        console.log("constructor");
-
         this.state = {
             auth: false,
         }
 
     }
 
+    logout = () => {
+        this.setState({ auth: false });
+    }
+
     render() {
-        console.log("Render");
+
+        const auth = localStorage.getItem("user");
+        if (!auth) {
+            console.log(auth);
+            this.props.history.push("/login");
+        }
+
         return (
             <div className="container">
-                <Navbar path="/login" linktext="Login" />
-                <h3 style={{textAlign: "center"}}>Home</h3>
+                <Navbar onChange={this.logout} />
+                <h3 style={{ textAlign: "center" }}>Home</h3>
             </div>
         );
     }
 
     componentDidMount() {
-        console.log("Component did mount");
-        const auth = localStorage.getItem("auth");
-        this.setState({ auth: auth });
+        // console.log("Component did mount");
+
+        // this.setState({ auth: auth });
     }
 
 }

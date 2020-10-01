@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.a_hover:hover {
+  color: rgb(0, 109, 199);
+  text-decoration: underline;
+  text-decoration-color: rgb(0, 149, 199);
+}

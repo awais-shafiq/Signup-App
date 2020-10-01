@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
+// import Navbar from '../components/Navbar';
 import Success from '../components/Success';
 import Warning from '../components/Warning';
 
@@ -102,11 +103,20 @@ class Signup extends Component {
         }
 
         return (
-            <div className="container">
-                <Navbar path="/login" linktext="Login" />
+            <div className="container pt-5">
+                {/* <Navbar path="/login" linktext="Login" /> */}
                 <div className=""></div>
                 <div className="row mt-5">
-                    <div className="col-sm-6 offset-md-3 mt-5 p-5" style={{ border: "1px solid #e1e1e1", borderRadius: "10px", boxShadow: "0 0 2px #a1a1a1" }}>
+
+                    <div className="col-lg-4 mt-5">
+                        <h1 className="text-primary">Signup App</h1>
+                        <p className="text-secondary">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+
+                    <div className="col-lg-5 offset-lg-3 mt-5 pt-5 pl-5 pr-5" style={{ border: "1px solid #e1e1e1", borderRadius: "10px", boxShadow: "0 0 2px #a1a1a1" }}>
                         <form onSubmit={this.signup}>
 
                             <div className="form-group">
@@ -124,11 +134,10 @@ class Signup extends Component {
                                 <input type="password" className="form-control" placeholder="Enter password" name="password" onChange={this.onChange} />
                             </div>
 
-                            <div className="text-right">
-                                <button type="submit" className="btn btn-primary" style={{ padding: "5px 50px 5px 50px" }}>Signup</button>
-                            </div>
+                            <button type="submit" className="btn btn-primary btn-block mt-4">Signup</button>
 
                         </form>
+                        <p className="text-center text-primary mt-3"><Link to="/login">Already have an account? Login</Link></p>
                         {this.state.signupStatus ? (
                             <span>
                                 <Success title="Success" message="Signup successful" /><br />

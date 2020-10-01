@@ -52,7 +52,7 @@ router.post("/login", function (req, res, next) {
         if (user.length > 0) {
             res.status(200).json({
                 success: true,
-                user: user
+                user: user[0]
             });
         } else {
             res.status(200).json({
