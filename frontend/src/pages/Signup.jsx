@@ -125,7 +125,7 @@ class Signup extends Component {
                             </div>
 
                             <div className="text-right">
-                                <button type="submit" className="btn btn-success" style={{ padding: "5px 50px 5px 50px" }}>Signup</button>
+                                <button type="submit" className="btn btn-primary" style={{ padding: "5px 50px 5px 50px" }}>Signup</button>
                             </div>
 
                         </form>

@@ -48,7 +48,7 @@ class Login extends Component {
                 this.setState({ invalidCredentitials: true, invalidMessage: res.message });
                 console.log(res.message);
             } else if (!res.success && res.err) {
-                this.setState({ invalidCredentitials: true, invalidMessage: res.err});
+                this.setState({ invalidCredentitials: true, invalidMessage: res.err });
                 console.log(res.err);
             } else {
                 this.setState({ loginStatus: true, invalidCredentitials: false });
@@ -56,7 +56,7 @@ class Login extends Component {
                 setTimeout(function () {
                     this.props.history.push("/");
                 }.bind(this), 2500);
-                
+
                 console.log(res.user);
             }
 
@@ -71,10 +71,16 @@ class Login extends Component {
         return (
             <div className="container">
                 <Navbar path="/signup" linktext="Signup" />
-                <div className=""></div>
                 <div className="row mt-5">
 
-                    <div className="col-sm-6 offset-md-3 mt-5 p-5" style={{ border: "1px solid #e1e1e1", borderRadius: "10px", boxShadow: "0 0 2px #a1a1a1" }}>
+                    <div className="col-sm-4 mt-5">
+                        <h3 className="text-primary">Signup App</h3>
+                        <p className="text-secondary">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                    <div className="col-sm-5 offset-sm-3 mt-5 pt-5 pl-5 pr-5" style={{ border: "1px solid #e1e1e1", borderRadius: "10px", boxShadow: "0 0 2px #a1a1a1" }}>
                         <form onSubmit={this.login}>
 
                             <div className="form-group">
@@ -87,14 +93,16 @@ class Login extends Component {
                                 <input type="password" className="form-control" placeholder="Enter password" name="password" onChange={this.onChange} />
                             </div>
                             <div className="text-right">
-                                <button type="submit" className="btn btn-success" style={{ padding: "5px 30px 5px 30px" }}>Login</button>
+                                <button type="submit" className="btn btn-primary" style={{ padding: "5px 50px 5px 50px" }}>Login</button>
                             </div>
 
-
-
                         </form>
-                        {this.state.loginStatus ? <Success title="Success" message="Login successful"/> : null}
+                        
+                        <p className="text-center text-primary mt-3">Don't have an account? Signup</p>
+
+                        {this.state.loginStatus ? <Success title="Success" message="Login successful" /> : null}
                         {this.state.invalidCredentitials ? <Warning title="Invalid Credentitials" message={this.state.invalidMessage} /> : <span></span>}
+
                     </div>
 
                 </div>
