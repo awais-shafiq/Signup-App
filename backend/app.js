@@ -6,9 +6,9 @@ const knexConfig = require("./knexfile");
 const {Model} = require("objection");
 const cors = require("cors");
 
-const knex = Knex(knexConfig.development);
-Model.knex(knex);
+const dbConfig = require("./db/DatabaseConfig");
 
+dbConfig.initializeDB();
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
