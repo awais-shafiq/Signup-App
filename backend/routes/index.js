@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const Users = require("../Models/Users");
-
 router.get("/", function (req, res, next) {
 
     Users.Users.query().then((data) => {
